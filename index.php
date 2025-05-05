@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Patient Information System</title>
+    <link rel="stylesheet" href="/Style/styles.css">
 </head>
 <body>
     <h1>Patient Information System</h1>
