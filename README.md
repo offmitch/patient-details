@@ -1,1 +1,1 @@
-# patient-details
+A patient information website for students to search and study different simulated patient details. Students will be able to search for patients via the first name, last name, and/or MRN. On the other hand, admin/instructors will be to add, edit, and remove patients from the database. The objective of this website it to teach students how to run tests as if they were working at a hospital.
