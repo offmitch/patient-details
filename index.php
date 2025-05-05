@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My First PHP Page</title>
+    <title>Patient Information System</title>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
+    <h1>Patient Information System</h1>
     <p>
         <?php
-            echo "Hello, world! This is a simple PHP page.";
+            echo "Hello,welcome to the Patient Information System!<br>";
+            echo "This system is designed to help you manage patient information efficiently.<br>";
+            echo "You can add, view, and update patient records easily.<br>";
+            echo "Please select an option from the menu to get started.<br>";
         ?>
     </p>
 </body>
