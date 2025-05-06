@@ -13,12 +13,7 @@
             echo "You can add, view, and update patient records easily.<br>";
             echo "Please select an option from the menu to get started.<br>";
         ?>
+        <a href="Admin/admin_page.php">Go to Admin Dashboard</a><br>
     </p>
 </body>
 </html>
-
-<?php
-
-    
-
-?>
