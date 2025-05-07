@@ -1,0 +1,18 @@
+.remove-students {
+    padding: 20px 40px;
+    font-size: 40px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: auto;
+    display: block;
+    margin: 100px auto;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}   
+  
+  .remove-students:hover {
+    background-color: #b84b4b;
+  }
