@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Patient Information System</title>
+    <meta charset="UTF-8">
+    <title>Landing Page</title>
     <link rel="stylesheet" href="/Style/styles.css">
+    <link rel="stylesheet" href="Style/header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    </style>
 </head>
 <body>
-    <h1>Patient Information System</h1>
-    <p>
-        <?php
-            echo "Hello,welcome to the Patient Information System!<br>";
-            echo "This system is designed to help you manage patient information efficiently.<br>";
-            echo "You can add, view, and update patient records easily.<br>";
-            echo "Please select an option from the menu to get started.<br>";
-        ?>
-        <a href="Admin/admin_page.php">Go to Admin Dashboard</a><br>
-    </p>
+
+    <!-- Include the header -->
+    <?php include 'Include/header.php'; ?>
+
+    <!-- Landing page content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Welcome!</h1>
+            <div class="container-buttons">
+               <a href="login.php" class="btn">Login</a>
+               <a href="register.php" class="btn">Register</a>
+               <a href="Admin/admin_page.php" class="btn">Go to Admin Page (for testing)</a><br>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
