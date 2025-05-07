@@ -35,7 +35,7 @@
 
           <div class="additional-links">
                 <p>Don't have an account? 
-                    <a href="#" style="color:yellow; text-decoration:underline">Click here to create an account</a>
+                    <a href="signup.php" style="color:yellow; text-decoration:underline">Click here to create an account</a>
                 </p>
                 <p>Forgot your password?
                     <span style="color:yellow"><i>Please contact your instructor</i></span>
