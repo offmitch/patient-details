@@ -20,7 +20,7 @@
             <h1>Welcome!</h1>
             <div class="container-buttons">
                <a href="login.php" class="btn">Login</a>
-               <a href="register.php" class="btn">Register</a>
+               <a href="signup.php" class="btn">Register</a>
                <a href="Admin/admin_page.php" class="btn">Go to Admin Page (for testing)</a><br>
             </div>
         </div>
