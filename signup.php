@@ -1,3 +1,24 @@
+<?php
+session_start();
+require_once 'config/db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $first = $_POST['first_name'] ?? '';
+    $last = $_POST['last_name'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirm = $_POST['confirm_password'] ?? '';
+
+    if ($password !== $confirm) {
+        $signup_error = "Passwords do not match.";
+    } else {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $pdo->prepare("INSERT INTO user (first_name, last_name, password, is_admin) VALUES (?, ?, ?, 0)");
+        $stmt->execute([$first, $last, $hash]);
+        header("Location: login.php");
+        exit;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +36,8 @@
     <div class="left-side">
       <div class="form-container">
         <h2>Create an Account</h2>
-        <form action="register_process.php" method="POST">
+        <?php if (!empty($signup_error)) echo "<p style='color:red;'>$signup_error</p>"; ?>
+        <form method="POST">
           <div class="form-group">
             <label for="first_name">First Name</label>
             <input type="text" id="first_name" name="first_name" required>
@@ -48,4 +70,3 @@
 
 </body>
 </html>
-      
