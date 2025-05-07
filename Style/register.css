@@ -89,6 +89,10 @@ body {
       max-height: 540px;
   }
 
+  .additional-links{
+    color: white
+  }
+
   @media (max-width: 768px) {
     .content-split {
       flex-direction: column;
