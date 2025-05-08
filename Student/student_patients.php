@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../Style/footer.css">
     <link rel="stylesheet" href="../Style/patients.css">
     <link rel="stylesheet" href="../Style/landing.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 </head>
@@ -63,10 +63,6 @@
         </tbody>
     </table>
 </div>
-
-<button class="add-button" onclick="window.location.href='new_patient.php'">Add New Patient</button>
-
-
 </body>
 </html>
 
