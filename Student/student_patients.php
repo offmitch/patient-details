@@ -71,4 +71,3 @@
 </html>
 
 
-<?php include("../Include/admin_footer.php"); ?>
