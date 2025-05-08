@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $last = $_POST['last_name'] ?? '';
   $password = $_POST['password'] ?? '';
 
-  $stmt = $pdo->prepare("SELECT * FROM user WHERE first_name = ? AND last_name = ?");
+  $stmt = $pdo->prepare("SELECT * FROM users WHERE first_name = ? AND last_name = ?");
   $stmt->execute([$first, $last]);
   $user = $stmt->fetch();
 
