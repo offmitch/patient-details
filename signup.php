@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $signup_error = "Passwords do not match.";
     } else {
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare("INSERT INTO user (first_name, last_name, password, is_admin) VALUES (?, ?, ?, 0)");
+        $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, password, is_admin) VALUES (?, ?, ?, 0)");
         $stmt->execute([$first, $last, $hash]);
         header("Location: login.php");
         exit;

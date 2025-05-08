@@ -1,12 +1,15 @@
 <?php
-$host = 'localhost';
-$dbname = 'patient_information_system';
-$user = 'root'; // or your MySQL user
-$pass = 'Gdaula541!';     // your password
-$charset = 'utf8mb4';
+$host = 'mysql-230c80a0-gurshaandaula-e98a.k.aivencloud.com';
+$db   = 'defaultdb';
+$user = 'avnadmin';
+$pass = 'AVNS_EjqVT4MgylL37zOq3uD';
+$port = 12515;
+// $ssl_ca = __DIR__ . '/ca.pem'; // ✅ correct
 
-$dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+$dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
+
 $options = [
+    // PDO::MYSQL_ATTR_SSL_CA => $ssl_ca,
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ];
