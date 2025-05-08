@@ -70,7 +70,7 @@
             <textarea id="presentation" readonly disabled><?= $patient['presentation'] ?></textarea>
         </div>
 
-        <a href="patients_list.php" class="btn">Back to Patient List</a>
+        <a href="student_patients.php" class="btn">Back to Patient List</a>
     </div>
 
 </body>

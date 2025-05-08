@@ -5,7 +5,7 @@
             <h1><span>My</span><span>Site</span></h1>
         </div>
         <ul class="navigation">
-            <li><a href="/">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
