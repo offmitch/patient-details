@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1 style="padding: 20px">Patient List</h1>
-   
+    
     <div class="search-container">
         <form method="GET" action="admin_patients.php">
              <input type="text" name="first_name" placeholder="First Name"
