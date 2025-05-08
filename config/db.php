@@ -2,9 +2,9 @@
 $host = 'mysql-230c80a0-gurshaandaula-e98a.k.aivencloud.com';
 $db   = 'defaultdb';
 $user = 'avnadmin';
-$pass = 'AVNS_EjqVT4MgylL37zOq3uD';
+$pass = '';
 $port = 12515;
-// $ssl_ca = __DIR__ . '/ca.pem'; // ✅ correct
+// $ssl_ca = __DIR__ . '/ca.pem';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
 
