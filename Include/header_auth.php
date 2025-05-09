@@ -7,7 +7,7 @@
     <div class="user_controls">
         <!-- TODO: Replace "John Doe" with dynamic name -->
         <span class="user_name">John Doe</span>
-        <button class="logout_btn">Logout</button>
+        <a href="/login.php"><button class="logout_btn">Logout</button></a>
     </div>
 </div>
 </div>

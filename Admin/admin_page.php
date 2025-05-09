@@ -1,4 +1,4 @@
-<?php include("../Include/header.php"); ?>
+<?php include("../Include/header_auth.php"); ?>
 
 <!DOCTYPE html>
 <html>

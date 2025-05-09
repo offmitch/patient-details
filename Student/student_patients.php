@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <h1>Patient List</h1>
+    <h1 style="padding:101px">Patient List</h1>
     
     <div class="search-container">
         <form method="GET" action="admin_patients.php">
@@ -30,7 +30,7 @@
   </form>
 </div>
 
-<div class="results-container">
+<div class="results-container" style="margin-bottom: 100px;">
     <p>2 Results Found:</p>
     <table class="results-table">
         <thead>
