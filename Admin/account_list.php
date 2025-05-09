@@ -30,40 +30,39 @@
         </form>
     </div>
 
-    <div class="results-container">
-        <p>2 Results Found:</p>
-        <table class="results-table">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>
-                        <button class="view-button"
-                            onclick="window.location.href='admin_patient_details.php?mrn=789012'">View</button>
-                        <button class="edit-button"
-                            onclick="window.location.href='admin_edit_patient.php?mrn=789012'">Make Admin</button>
-                        <button class="delete-button" onclick="confirmDelete('789012')"><i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jane</td>
-                    <td>Smith</td>
-                    <td>
-                        <button class="view-button"
-                            onclick="window.location.href='admin_patient_details.php?mrn=789012'">View</button>
-                        <button class="edit-button"
-                            onclick="window.location.href='admin_edit_patient.php?mrn=789012'">Make Admin</button>
-                        <button class="delete-button" onclick="confirmDelete('789012')"><i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
+<div class="results-container">
+    <p>2 Results Found:</p>
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>Student</td>
+                <td>
+                    <button class="view-button" onclick="window.location.href='account_view.php'">View</button>
+                    <button class="edit-button" onclick="window.location.href='admin_edit_patient.php?mrn=789012'">Make Admin</button>
+                    <button class="delete-button" onclick="confirmDelete('789012')"><i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Jane</td>
+                <td>Smith</td>
+                <td>Admin</td>
+                <td>
+                    <button class="view-button" onclick="window.location.href='admin_patient_details.php?mrn=789012'">View</button>
+                    <button class="edit-button" onclick="window.location.href='admin_edit_patient.php?mrn=789012'">Remove Admin</button>
+                    <button class="delete-button" onclick="confirmDelete('789012')"><i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
 
                 </tr>
             </tbody>

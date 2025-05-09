@@ -17,19 +17,20 @@ include("../Include/header.php");
 </head>
 
 <body>
-<h1 style="padding: 20px">Patient List</h1>
+    <h1 style="padding: 20px">Patient List</h1>
+    
+    <div class="search-container">
+        <form method="GET" action="admin_patients.php">
+             <input type="text" name="first_name" placeholder="First Name"
+              value="<?php echo isset($_GET['first_name']) ? htmlspecialchars($_GET['first_name']) : ''; ?>">
+    <input type="text" name="last_name" placeholder="Last Name"
+      value="<?php echo isset($_GET['last_name']) ? htmlspecialchars($_GET['last_name']) : ''; ?>">
+    <input type="text" name="mrn" placeholder="MRN"
+      value="<?php echo isset($_GET['mrn']) ? htmlspecialchars($_GET['mrn']) : ''; ?>">
 
-<div class="search-container">
-    <form method="GET" action="admin_patients.php">
-        <input type="text" name="first_name" placeholder="First Name"
-               value="<?php echo isset($_GET['first_name']) ? htmlspecialchars($_GET['first_name']) : ''; ?>">
-        <input type="text" name="last_name" placeholder="Last Name"
-               value="<?php echo isset($_GET['last_name']) ? htmlspecialchars($_GET['last_name']) : ''; ?>">
-        <input type="text" name="mrn" placeholder="MRN"
-               value="<?php echo isset($_GET['mrn']) ? htmlspecialchars($_GET['mrn']) : ''; ?>">
-        <input type="submit" value="Search" class="search-button">
-        <a href="admin_patients.php" class="all-button">All</a>
-    </form>
+      <input type="submit" value="Search" class="search-button">
+      <a href="admin_patients.php" class="all-button">All</a>
+  </form>
 </div>
 
 <div class="results-container">
