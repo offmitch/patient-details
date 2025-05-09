@@ -59,6 +59,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
 
           <button type="submit" class="btn">Create Account</button>
+
+          <div class="additional-links">
+            <br>
+            <p>Already have an account?
+              <a href="login.php" style="color:yellow; text-decoration:underline">Login</a>
+            </p>
+           
+          </div>
+
         </form>
       </div>
     </div>
