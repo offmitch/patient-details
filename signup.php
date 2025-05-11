@@ -1,24 +1,22 @@
 <?php
-session_start();
 require_once 'config/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $first = $_POST['first_name'] ?? '';
-    $last = $_POST['last_name'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $confirm = $_POST['confirm_password'] ?? '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $firstName = $_POST['first_name'];
+    $lastName = $_POST['last_name'];
+    $password = $_POST['password'];
+    $isAdmin = isset($_POST['is_admin']) ? 1 : 0;
 
-    if ($password !== $confirm) {
-        $signup_error = "Passwords do not match.";
-    } else {
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, password, is_admin) VALUES (?, ?, ?, 0)");
-        $stmt->execute([$first, $last, $hash]);
-        header("Location: login.php");
-        exit;
-    }
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, password, raw_password, is_admin) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$firstName, $lastName, $hashedPassword, $password, $isAdmin]);
+
+    header("Location: login.php");
+    exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
