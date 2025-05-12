@@ -9,11 +9,11 @@ include("../Include/header.php");
 <head>
   <meta charset="UTF-8">
   <title>Account List</title>
-  <link rel="stylesheet" href="/Style/styles.css">
-  <link rel="stylesheet" href="/Style/header.css">
-  <link rel="stylesheet" href="/Style/footer.css">
-  <link rel="stylesheet" href="/Style/accounts.css">
-  <link rel="stylesheet" href="/Style/patients.css">
+  <link rel="stylesheet" href="../Style/styles.css">
+  <link rel="stylesheet" href="../Style/header.css">
+  <link rel="stylesheet" href="../Style/footer.css">
+  <link rel="stylesheet" href="../Style/accounts.css">
+  <link rel="stylesheet" href="../Style/patients.css">
 </head>
 <body>
 

@@ -4,15 +4,15 @@
 <html>
 <head>
     <title>Patient Information System</title>
-    <link rel="stylesheet" href="/Style/styles.css">
-    <link rel="stylesheet" href="/Style/header.css">
-    <link rel="stylesheet" href="/Style/footer.css">
-    <link rel="stylesheet" href="/Style/patients.css">
-    <link rel="stylesheet" href="/Style/landing.css">
+    <link rel="stylesheet" href="../Style/styles.css">
+    <link rel="stylesheet" href="../Style/header.css">
+    <link rel="stylesheet" href="../Style/footer.css">
+    <link rel="stylesheet" href="../Style/patients.css">
+    <link rel="stylesheet" href="../Style/landing.css">
 
 </head>
 <body>
-    <h1 style="padding: 200px">Welcome <NAME>!</h1>
+    <h1>Welcome <NAME>!</h1>
 
     <div class="center_container">
         <div class="admin_selections">

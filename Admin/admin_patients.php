@@ -8,16 +8,15 @@ include("../Include/header_auth.php");
 <html>
 <head>
     <title>Patient Information System</title>
-    <link rel="stylesheet" href="/Style/styles.css">
-    <link rel="stylesheet" href="/Style/header.css">
-    <link rel="stylesheet" href="/Style/footer.css">
-    <link rel="stylesheet" href="/Style/patients.css">
-    <link rel="stylesheet" href="/Style/landing.css">
+    <link rel="stylesheet" href="../Style/styles.css">
+    <link rel="stylesheet" href="../Style/header.css">
+    <link rel="stylesheet" href="../Style/footer.css">
+    <link rel="stylesheet" href="../Style/patients.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-    <h1 style="padding: 20px">Patient List</h1>
+    <h1 >Patient List</h1>
     
     <div class="search-container">
         <form method="GET" action="admin_patients.php">
@@ -95,7 +94,7 @@ include("../Include/header_auth.php");
     </div>
 </div>
 
-<button class="add-button" onclick="window.location.href='new_patient.php'">Add New Patient</button>
+<button class="add-button" onclick="window.location.href='new_patient.php'" style="padding-bottom:50px">Add New Patient</button>
 
 <script>
     function confirmDelete(mrn) {
