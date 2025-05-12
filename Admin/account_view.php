@@ -136,10 +136,6 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
       <label>Unhashed Password</label>
       <span><?= htmlspecialchars($user['raw_password']) ?></span>
     </div>
-    <div class="info-group">
-      <label>Hashed Password</label>
-      <span style="font-size: 14px; word-break: break-word;"><?= htmlspecialchars($user['password']) ?></span>
-    </div>
   </div>
 
   <?php if (!isset($_GET['delete'])): ?>

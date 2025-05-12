@@ -136,6 +136,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <option value="">-- Select --</option>
                 <option>Male</option>
                 <option>Female</option>
+                <option>Rather Not Say</option>
+                <option>Other</option>
             </select>
         </div>
 
