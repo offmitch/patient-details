@@ -94,7 +94,9 @@ include("../Include/header_auth.php");
     </div>
 </div>
 
-<button class="add-button" onclick="window.location.href='new_patient.php'" style="padding-bottom:50px">Add New Patient</button>
+<div class="button-container">
+    <button class="add-button" onclick="window.location.href='new_patient.php'">Add New Patient</button>
+</div>
 
 <script>
     function confirmDelete(mrn) {
