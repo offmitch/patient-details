@@ -20,7 +20,6 @@ if (!$patient) {
     <title>Patient Details</title>
     <link rel="stylesheet" href="../Style/styles.css">
     <link rel="stylesheet" href="../Style/header.css">
-    <link rel="stylesheet" href="../Style/landing.css">
     <link rel="stylesheet" href="../Style/patient_details.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>

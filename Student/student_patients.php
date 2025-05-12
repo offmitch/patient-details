@@ -10,12 +10,11 @@ require_once '../config/db.php';
     <link rel="stylesheet" href="../Style/styles.css">
     <link rel="stylesheet" href="../Style/header.css">
     <link rel="stylesheet" href="../Style/patients.css">
-    <link rel="stylesheet" href="../Style/landing.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<h1 style="padding: 101px">Patient List</h1>
+<h1 style="padding-top: 10px">Patient List</h1>
 
 <div class="search-container">
     <form method="GET" action="student_patients.php">
