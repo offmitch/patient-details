@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("./Include/header.php");
 require_once 'config/db.php';
 
 $error = '';
