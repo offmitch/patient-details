@@ -9,8 +9,6 @@ body {
 .container {
     width: 80%;
     max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -99,4 +97,9 @@ h2 {
 
 .btn:hover {
     background-color: #0056b3;
+}
+.container .btn {
+    display: inline-block;
+    margin-top: 40px; 
+    margin-bottom: 60px; 
 }
