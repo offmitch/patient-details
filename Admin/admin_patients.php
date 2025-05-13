@@ -61,10 +61,8 @@ include("../Include/header_auth.php");
     $patients = $stmt->fetchAll();
     ?>
 
-    <p><?php echo count($patients); ?> Results Found:</p>
-
-    <div style="max-height: 400px; overflow-y: auto; border-radius: 6px;">
-        <table class="results-table">
+<div style="max-height: 600px; overflow-y: auto; padding-bottom: 60px;">
+  <table class="results-table">
             <thead>
             <tr>
                 <th>First Name</th>
@@ -85,18 +83,19 @@ include("../Include/header_auth.php");
                         <button class="edit-button"
                                 onclick="window.location.href='admin_edit_patient.php?mrn=<?= $row['mrn'] ?>'">Edit</button>
                         <button class="delete-button"
-                                onclick="confirmDelete('<?= $row['mrn'] ?>')"><i class="fas fa-trash-alt"></i></button>
+                                onclick="confirmDelete('<?= $row['mrn'] ?>')"><i class="fas fa-trash-alt fa-lg"></i></button>
                     </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
-        </table>
+    </table>
     </div>
 </div>
 
-<div class="button-container">
+
+
     <button class="add-button" onclick="window.location.href='new_patient.php'">Add New Patient</button>
-</div>
+
 
 <script>
     function confirmDelete(mrn) {

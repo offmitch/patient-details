@@ -55,7 +55,6 @@ $patients = $stmt->fetchAll();
 ?>
 
 <div class="results-container" style="margin-bottom: 100px;">
-    <p><?= count($patients) ?> Results Found:</p>
     <div style="max-height: 500px; overflow-y: auto;">
         <table class="results-table">
             <thead>

@@ -20,7 +20,7 @@
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 30px;
     height: 36px;
     min-width: 160px;
   }
@@ -31,7 +31,7 @@
     border: none;
     padding: 16px;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 20px;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -45,7 +45,7 @@
     border: none;
     padding: 16px;
     border-radius: 6px;
-    font-size: 15px;
+    font-size: 20px;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -63,9 +63,11 @@
     width: 80%;
     height: 700px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 10px;
     background-color: #8c8b8b;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
   }
   
   .results-table {
@@ -73,32 +75,34 @@
     border-collapse: collapse;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    overflow-y: scroll;
   }
-  
+
   .results-table th, .results-table td {
     padding: 12px 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #ffffff;
   }
   
   .results-table th {
     background-color: #007BFF;
     color: white;
-    font-size: 16px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: sticky;
   }
   
   .results-table td {
     background-color: #fff;
-    font-size: 14px;
+    font-size: 28px;
+    border: 1px solid #ddd;
   }
   
   .results-table tbody tr:nth-child(even) {
     background-color: #f2f2f2;
   }
   
-  .results-table tbody tr:hover {
-    background-color: #e6f0ff;
-    cursor: pointer;
-  }
   
   .results-table td, .results-table th {
     border-right: 1px solid #ddd;
@@ -110,7 +114,7 @@
 
   button {
     padding: 6px ;      
-    font-size: 14px;  
+    font-size: 25px;  
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -131,7 +135,7 @@
   }
   
   .edit-button:hover {
-    background-color: #FFCC00;
+    background-color: #caa40c;
   }
   
   .delete-button {
@@ -140,7 +144,7 @@
   }
   
   .delete-button:hover {
-    background-color: #e04e2d;
+    background-color: #b12a0c;
   }
 
   .add-button {
@@ -156,6 +160,10 @@
     margin: 100px auto;
     text-align: center;
     transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 10px;
+    left: 50%; 
+    transform: translateX(-50%);
   }
   
   .add-button:hover {
