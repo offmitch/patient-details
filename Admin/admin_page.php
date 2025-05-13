@@ -1,4 +1,6 @@
-<?php include("../Include/header_auth.php"); ?>
+<?php include("../Include/header_auth.php"); 
+require_once '../config/db.php';
+?>
 
 <!DOCTYPE html>
 <html>
@@ -8,11 +10,17 @@
     <link rel="stylesheet" href="../Style/header.css">
     <link rel="stylesheet" href="../Style/footer.css">
     <link rel="stylesheet" href="../Style/patients.css">
-    <link rel="stylesheet" href="../Style/landing.css">
+    <!-- <link rel="stylesheet" href="../Style/landing.css"> -->
 
 </head>
 <body>
-    <h1>Welcome <NAME>!</h1>
+    <h1>Welcome <span class="user_name">
+                <?= isset($_SESSION['first_name'], $_SESSION['last_name'])
+                    ? htmlspecialchars($_SESSION['first_name'] . ' ' . $_SESSION['last_name'])
+                    : 'Guest' ?>
+            </span>
+            
+            !</h1>
 
     <div class="center_container">
         <div class="admin_selections">
