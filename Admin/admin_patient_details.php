@@ -29,24 +29,55 @@ if (!$patient) {
 <div class="container">
     <h2>Admin - Patient Details</h2>
     <div class="info-section">
-        <?php foreach ($patient as $key => $value): ?>
-            <?php if (in_array($key, ['medication', 'clinical_presentation'])): ?>
-                <div class="info-group full-width">
-                    <label><?= ucfirst(str_replace('_', ' ', $key)) ?>:</label>
-                    <span><?= nl2br(htmlspecialchars($value)) ?></span>
-                </div>
-            <?php else: ?>
-                <div class="info-group">
-                    <label><?= ucfirst(str_replace('_', ' ', $key)) ?>:</label>
-                    <span><?= nl2br(htmlspecialchars($value)) ?></span>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
+        <div class="info-group">
+            <label>First Name:</label>
+            <span><?= htmlspecialchars($patient['first_name']) ?></span>
+        </div>
+        <div class="info-group">
+            <label>Last Name:</label>
+            <span><?= htmlspecialchars($patient['last_name']) ?></span>
+        </div>
+        <div class="info-group">
+            <label>MRN:</label>
+            <span><?= htmlspecialchars($patient['mrn']) ?></span>
+        </div>
+        <div class="info-group">
+            <label>Gender:</label>
+            <span><?= htmlspecialchars($patient['gender']) ?></span>
+        </div>
+        <div class="info-group">
+            <label>Date of Birth:</label>
+            <span><?= htmlspecialchars($patient['dob']) ?></span>
+        </div>
+        <div class="info-group">
+            <label>MRP:</label>
+            <span><?= htmlspecialchars($patient['mrp']) ?></span>
+        </div>
     </div>
+     <div class="full-width">
+        <label>Current Medication:</label>
+        <textarea readonly disabled><?= htmlspecialchars($patient['medication']) ?></textarea>
+    </div>
+
+    <div class="full-width">
+        <label>Clinical Presentation:</label>
+        <textarea readonly disabled><?= htmlspecialchars($patient['clinical_presentation']) ?></textarea>
+    </div>
+
+     <div class="info-group">
+            <label>QC Level</label>
+            <span><?= htmlspecialchars($patient['qc_level']) ?></span>
+        </div>
+        <div class="info-group">
+            <label>Tests Ordered:</label>
+            <span><?= htmlspecialchars($patient['tests_ordered']) ?></span>
+        </div>
+
     <a href="admin_patients.php" class="btn">← Back</a>
 </div>
 
 <?php include("../Include/admin_footer.php"); ?>
+
 
 
 </body>
