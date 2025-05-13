@@ -47,7 +47,14 @@ if (!$patient) {
         </div>
         <div class="info-group">
             <label>Date of Birth:</label>
-            <span><?= htmlspecialchars($patient['dob']) ?></span>
+            <span>
+             <?php
+                $dob = new DateTime($patient['dob']);
+                $now = new DateTime();
+                 $age = $now->diff($dob)->y;
+                echo htmlspecialchars($patient['dob']) . " (Age: $age)";
+             ?>
+            </span>
         </div>
         <div class="info-group">
             <label>MRP:</label>
