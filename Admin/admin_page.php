@@ -14,7 +14,7 @@ require_once '../config/db.php';
 
 </head>
 <body>
-    <h1>Welcome <span class="user_name">
+    <h1 style="padding-top:35px">Welcome <span class="user_name">
                 <?= isset($_SESSION['first_name'], $_SESSION['last_name'])
                     ? htmlspecialchars($_SESSION['first_name'] . ' ' . $_SESSION['last_name'])
                     : 'Guest' ?>
