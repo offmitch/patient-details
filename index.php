@@ -21,8 +21,6 @@
             <div class="container-buttons">
                <a href="login.php" class="btn">Login</a>
                <a href="signup.php" class="btn">Register</a>
-                              <a href="Student/patient_details.php" class="btn">Go to Student Page (for testing)</a>
-               <a href="Admin/admin_page.php" class="btn">Go to Admin Page (for testing)</a><br>
             </div>
         </div>
     </div>
