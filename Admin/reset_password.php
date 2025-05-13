@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 <?php include("../Include/header.php"); ?>
-<div class="container">
+<div class="container" style="margin: auto">
     <h2>Reset Password</h2>
     <form method="POST">
         <div class="info-group">

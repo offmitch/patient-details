@@ -55,7 +55,7 @@ if (!$patient) {
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="margin: auto">
     <h2>Patient Details</h2>
 
     <div class="info-section">

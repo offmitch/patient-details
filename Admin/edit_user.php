@@ -37,7 +37,7 @@ $user = $stmt->fetch();
 </head>
 <body>
 <?php include("../Include/header.php"); ?>
-<div class="container">
+<div class="container" style="margin:auto">
     <h2>Edit Account</h2>
     <form method="POST">
         <div class="info-group">
