@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 <head>
     <title>Add New Patient</title>
-    <link rel="stylesheet" href="/Style/styles.css">
-    <link rel="stylesheet" href="/Style/header.css">
-    <link rel="stylesheet" href="/Style/patients.css">
-    <link rel="stylesheet" href="/Style/landing.css">
+    <link rel="stylesheet" href="../Style/styles.css">
+    <link rel="stylesheet" href="../Style/header.css">
+    <link rel="stylesheet" href="../Style/patients.css">
+    <!-- <link rel="stylesheet" href="/Style/landing.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {

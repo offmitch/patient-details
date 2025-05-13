@@ -36,10 +36,10 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
 <head>
   <meta charset="UTF-8">
   <title>View Account</title>
-  <link rel="stylesheet" href="/Style/styles.css">
-  <link rel="stylesheet" href="/Style/header.css">
-  <link rel="stylesheet" href="/Style/footer.css">
-  <link rel="stylesheet" href="/Style/patient_details.css">
+  <link rel="stylesheet" href="../Style/styles.css">
+  <link rel="stylesheet" href="../Style/header.css">
+  <link rel="stylesheet" href="../Style/footer.css">
+  <link rel="stylesheet" href="../Style/patient_details.css">
   <style>
     .container h2 {
       font-size: 32px;
@@ -116,8 +116,8 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
 </head>
 <body>
 
-<div class="container">
-  <h2>Account Details</h2>
+<div class="container" style="margin:auto">
+  <h2 >Account Details</h2>
 
   <div class="info-section">
     <div class="info-group">
