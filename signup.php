@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           <div class="additional-links">
             <br>
             <p>Already have an account?
-              <a href="login.php" style="color:yellow; text-decoration:underline">Login</a>
+              <a href="index.php" style="color:yellow; text-decoration:underline">Login</a>
             </p>
             <p>
               
