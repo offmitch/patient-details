@@ -167,6 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
 
         <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn" onclick="window.location.href='admin_patients.php'">Back</button>
     </form>
 </div>
 
