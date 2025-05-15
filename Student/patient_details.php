@@ -54,9 +54,9 @@ if (!$patient) {
     </style>
 </head>
 <body>
-
-<div class="container" style="margin: auto">
-    <h2>Patient Details</h2>
+<div style="padding-top: 50px; padding-bottom: 50px">
+<div class="container" style="margin: auto;">
+    <h1 style="color: Black">Patient Details</h1>
 
     <div class="info-section">
         <div class="info-group">
@@ -104,6 +104,7 @@ if (!$patient) {
 
     <a href="student_patients.php" class="btn">← Back to Patient List</a>
 </div>
+    </div>
 
 </body>
 </html>
