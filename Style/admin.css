@@ -72,3 +72,62 @@ h2 {
 .btn:hover {
     background-color: #0056b3;
 }
+
+.center_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.admin_selections {
+    display: flex;
+    gap: 20px; /* space between buttons */
+}
+
+.admin_button {
+    padding: 8px 16px;
+    font-size: 14px;
+    width: 140px; /* smaller width */
+    height: 100px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin_button:hover {
+    background-color: #45a049;
+}
+
+.add-patient-container {
+    background-color: 4CAF50;
+}
+
+.welcome_msg {
+    text-align: center;
+    padding-top: 250px;
+}
+
+
+  .add-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-btn:hover,
+  .add-btn:hover {
+    background-color: #218838;
+  }

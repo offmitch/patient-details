@@ -10,24 +10,21 @@ require_once '../config/db.php';
     <link rel="stylesheet" href="../Style/header.css">
     <link rel="stylesheet" href="../Style/footer.css">
     <link rel="stylesheet" href="../Style/patients.css">
+    <link rel="stylesheet" href="../Style/admin.css">
     <!-- <link rel="stylesheet" href="../Style/landing.css"> -->
 
 </head>
 <body>
-    <h1 style="padding-top:35px">Welcome <span class="user_name">
+    <div class="welcome_msg">
+    <h1>Welcome <span class="user_name">
                 <?= isset($_SESSION['first_name'], $_SESSION['last_name'])
                     ? htmlspecialchars($_SESSION['first_name'] . ' ' . $_SESSION['last_name'])
                     : 'Guest' ?>
             </span>
             
             !</h1>
+</div>
 
-    <div class="center_container">
-        <div class="admin_selections">
-            <button class="admin_button" onclick="location.href='admin_patients.php'">View Patients</button>
-            <button class="admin_button" onclick="location.href='account_list.php'">View Accounts</button>
-        </div>
-    </div>
 
 </body>
 </html>

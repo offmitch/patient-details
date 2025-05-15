@@ -14,6 +14,7 @@ include("../Include/header_auth.php");
     <link rel="stylesheet" href="../Style/footer.css">
     <link rel="stylesheet" href="../Style/patients.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../Style/admin.css">
 </head>
 
 <body>
@@ -31,9 +32,13 @@ include("../Include/header_auth.php");
             <div style="margin-left:auto">
                 <input type="submit" value="Search" class="search-button">
             </div>
-            <div style="margin-right:auto">
+            <div style="margin-right:0">
                 <a href="admin_patients.php" class="all-button">All</a>
             </div>
+            <div class="add-patient-container" style="margin-right: auto; color: green">
+    <a href="new_patient.php" class="add-btn">Add New Patient</a>
+</div>
+
         </form>
     </div>
 
@@ -66,7 +71,7 @@ include("../Include/header_auth.php");
         $patients = $stmt->fetchAll();
         ?>
 
-        <p><?php echo count($patients); ?> Results Found:</p>
+        <p style="color: white"><?php echo count($patients); ?><span> Results Found: </p>
 
         <div style="max-height: 400px; overflow-y: auto; border-radius: 6px;">
             <table class="results-table">
@@ -97,10 +102,6 @@ include("../Include/header_auth.php");
                 </tbody>
             </table>
         </div>
-    </div>
-
-    <div class="button-container">
-        <button class="add-button" onclick="window.location.href='new_patient.php'">Add New Patient</button>
     </div>
 
     <script>
