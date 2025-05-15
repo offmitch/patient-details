@@ -11,6 +11,7 @@
     height: 80px;
     display: block;
     background-color: lightskyblue;
+    position:fixed;
 }
 
 .inner_header {

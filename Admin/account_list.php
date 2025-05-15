@@ -18,7 +18,7 @@ include("../Include/header_auth.php");
 
 </head>
 <style>
-  html, body {
+  body {
     overflow-y: auto !important;
     height: auto !important;
   }
@@ -26,7 +26,7 @@ include("../Include/header_auth.php");
   body {
     padding-bottom: 80px;
   }
-
+/* 
   .results-container {
     max-height: none !important;
     overflow-y: visible !important;
@@ -34,13 +34,14 @@ include("../Include/header_auth.php");
 
   footer {
     position: relative !important;
-  }
+  } */
+  
 </style>
 
 <body>
 
-<h1 style="padding:25px;">List of All Accounts</h1>
-
+<div class="account_list_countainer" style="padding-top: 100px">
+<h1 >List of All Accounts</h1>
 <div class="results-container" style="max-height: 600px; overflow-y: auto;">
   <table class="results-table">
     <thead>
@@ -69,6 +70,8 @@ include("../Include/header_auth.php");
     </tbody>
   </table>
 </div>
+</div>
+
 
 <?php include("../Include/admin_footer.php"); ?>
 </body>
