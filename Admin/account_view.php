@@ -116,6 +116,7 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
 </head>
 <body>
 
+<div style="padding-top: 25px; padding-bottom: 25px">
 <div class="container" style="margin:auto">
   <h2 >Account Details</h2>
 
@@ -155,10 +156,11 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
     </div>
   <?php endif; ?>
 
-  <div style="text-align: center; margin-top: 30px;">
+  <div style="text-align: center;">
     <a href="account_list.php" class="btn">← Back to Account List</a>
   </div>
 </div>
+  </div>
 
 <?php include("../Include/admin_footer.php"); ?>
 </body>

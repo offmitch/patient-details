@@ -14,10 +14,32 @@ include("../Include/header_auth.php");
   <link rel="stylesheet" href="../Style/footer.css">
   <link rel="stylesheet" href="../Style/accounts.css">
   <link rel="stylesheet" href="../Style/patients.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+<style>
+  html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  body {
+    padding-bottom: 80px;
+  }
+
+  .results-container {
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+
+  footer {
+    position: relative !important;
+  }
+</style>
+
 <body>
 
-<h1 style="padding: 20px;">List of All Accounts</h1>
+<h1 style="padding:25px;">List of All Accounts</h1>
 
 <div class="results-container" style="max-height: 600px; overflow-y: auto;">
   <table class="results-table">

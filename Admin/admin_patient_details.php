@@ -28,7 +28,7 @@ if (!$patient) {
 </head>
 
 <body>
-    <div style="padding-top: 25px; padding-bottom: 25spx">
+    <div style="padding-top: 25px; padding-bottom: 25px">
         <div class="container">
             <h2>Admin - Patient Details</h2>
             <div class="info-section">
