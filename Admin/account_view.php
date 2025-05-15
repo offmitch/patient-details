@@ -40,6 +40,7 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
   <link rel="stylesheet" href="../Style/header.css">
   <link rel="stylesheet" href="../Style/footer.css">
   <link rel="stylesheet" href="../Style/patient_details.css">
+  <link rel="stylesheet" href="../Style/admin.css">
   <style>
     .container h2 {
       font-size: 32px;
@@ -52,7 +53,7 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
     .info-group span {
       background-color: #fff;
       border: 1px solid #ccc;
-      padding: 16px;
+      /* padding: 16px; */
       min-height: 48px;
       border-radius: 8px;
       font-size: 18px;
@@ -116,7 +117,7 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
 </head>
 <body>
 
-<div style="padding-top: 25px; padding-bottom: 25px">
+<div style="padding-top: 100px; padding-bottom: 100px">
 <div class="container" style="margin:auto">
   <h2 >Account Details</h2>
 
@@ -157,7 +158,7 @@ $role = $user['is_admin'] ? 'Admin' : 'Student';
   <?php endif; ?>
 
   <div style="text-align: center;">
-    <a href="account_list.php" class="btn">← Back to Account List</a>
+    <a href="account_list.php" class="btn" style="height:80px; width: 150px">← Back to Account List</a>
   </div>
 </div>
   </div>
