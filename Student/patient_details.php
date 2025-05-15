@@ -16,6 +16,7 @@ if (!$patient) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Patient Details</title>
     <link rel="stylesheet" href="../Style/styles.css">
@@ -53,58 +54,60 @@ if (!$patient) {
         }
     </style>
 </head>
+
 <body>
-<div style="padding-top: 50px; padding-bottom: 50px">
-<div class="container" style="margin: auto;">
-    <h1 style="color: Black">Patient Details</h1>
+    <div style="padding-top: 50px; padding-bottom: 50px">
+        <div class="container" style="margin: auto;">
+            <h1 style="color: Black">Patient Details</h1>
 
-    <div class="info-section">
-        <div class="info-group">
-            <label>First Name:</label>
-            <span><?= htmlspecialchars($patient['first_name']) ?></span>
-        </div>
-        <div class="info-group">
-            <label>Last Name:</label>
-            <span><?= htmlspecialchars($patient['last_name']) ?></span>
-        </div>
-        <div class="info-group">
-            <label>MRN:</label>
-            <span><?= htmlspecialchars($patient['mrn']) ?></span>
-        </div>
-        <div class="info-group">
-            <label>Gender:</label>
-            <span><?= htmlspecialchars($patient['gender']) ?></span>
-        </div>
-        <div class="info-group">
-            <label>Date of Birth:</label>
-            <span>
-             <?php
-                $dob = new DateTime($patient['dob']);
-                $now = new DateTime();
-                 $age = $now->diff($dob)->y;
-                echo htmlspecialchars($patient['dob']) . " (Age: $age)";
-             ?>
-            </span>
-        </div>
-        <div class="info-group">
-            <label>MRP:</label>
-            <span><?= htmlspecialchars($patient['mrp']) ?></span>
-        </div>
-    </div>
+            <div class="info-section">
+                <div class="info-group">
+                    <label>First Name:</label>
+                    <span><?= htmlspecialchars($patient['first_name']) ?></span>
+                </div>
+                <div class="info-group">
+                    <label>Last Name:</label>
+                    <span><?= htmlspecialchars($patient['last_name']) ?></span>
+                </div>
+                <div class="info-group">
+                    <label>MRN:</label>
+                    <span><?= htmlspecialchars($patient['mrn']) ?></span>
+                </div>
+                <div class="info-group">
+                    <label>Gender:</label>
+                    <span><?= htmlspecialchars($patient['gender']) ?></span>
+                </div>
+                <div class="info-group">
+                    <label>Date of Birth:</label>
+                    <span>
+                        <?php
+                        $dob = new DateTime($patient['dob']);
+                        $now = new DateTime();
+                        $age = $now->diff($dob)->y;
+                        echo htmlspecialchars($patient['dob']) . " (Age: $age)";
+                        ?>
+                    </span>
+                </div>
+                <div class="info-group">
+                    <label>MRP:</label>
+                    <span><?= htmlspecialchars($patient['mrp']) ?></span>
+                </div>
+            </div>
 
-    <div class="full-width">
-        <label>Current Medication:</label>
-        <textarea readonly disabled><?= htmlspecialchars($patient['medication']) ?></textarea>
-    </div>
+            <div class="full-width">
+                <label>Current Medication:</label>
+                <textarea readonly disabled><?= htmlspecialchars($patient['medication']) ?></textarea>
+            </div>
 
-    <div class="full-width">
-        <label>Clinical Presentation:</label>
-        <textarea readonly disabled><?= htmlspecialchars($patient['clinical_presentation']) ?></textarea>
-    </div>
+            <div class="full-width">
+                <label>Clinical Presentation:</label>
+                <textarea readonly disabled><?= htmlspecialchars($patient['clinical_presentation']) ?></textarea>
+            </div>
 
-    <a href="student_patients.php" class="btn">← Back to Patient List</a>
-</div>
+            <a href="student_patients.php" class="btn">← Back to Patient List</a>
+        </div>
     </div>
 
 </body>
+
 </html>
