@@ -10,8 +10,9 @@ require_once '../config/db.php';
     <title>Patient Information System</title>
     <link rel="stylesheet" href="../Style/styles.css">
     <link rel="stylesheet" href="../Style/header.css">
+    <link rel="stylesheet" href="../Style/admin.css">
     <link rel="stylesheet" href="../Style/patients.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <style>
         .center-message {
             text-align: center;
@@ -46,8 +47,6 @@ require_once '../config/db.php';
 
 <body>
 
-    <div style="padding:10px"></div>
-
     <?php
     $sql = "SELECT * FROM patient_information";
     $conditions = [];
@@ -81,9 +80,9 @@ require_once '../config/db.php';
     }
     ?>
 
-    <div> 
+    <div style="padding-top:100px"> 
     <?php if (!$hasSearch): ?>
-        <h1 style="padding-top:15px"><span>Enter patient information here</span></h1>
+        <h1>Enter patient information here</h1>
     <?php endif; ?>
     <div class="search-container">
         <form method="GET" action="student_patients.php">
