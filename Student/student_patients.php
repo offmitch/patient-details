@@ -12,6 +12,7 @@ require_once '../config/db.php';
     <link rel="stylesheet" href="../Style/header.css">
     <link rel="stylesheet" href="../Style/admin.css">
     <link rel="stylesheet" href="../Style/patients.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <style>
         .center-message {
@@ -41,7 +42,29 @@ require_once '../config/db.php';
             flex-wrap: wrap;
             gap: 10px;
             align-items: center;
+            
         }
+        .input-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.input-row input[type="text"] {
+    max-width: 360px;
+    justify-content: center;
+}
+
+
     </style>
 </head>
 
@@ -84,19 +107,20 @@ require_once '../config/db.php';
     <?php if (!$hasSearch): ?>
         <h1>Enter patient information here</h1>
     <?php endif; ?>
-    <div class="search-container">
-        <form method="GET" action="student_patients.php">
+<div class="search-container">
+    <form method="GET" action="student_patients.php">
+        <div class="input-row">
             <input type="text" name="first_name" placeholder="First Name" value="<?= htmlspecialchars($_GET['first_name'] ?? '') ?>">
             <input type="text" name="last_name" placeholder="Last Name" value="<?= htmlspecialchars($_GET['last_name'] ?? '') ?>">
             <input type="text" name="mrn" placeholder="MRN" value="<?= htmlspecialchars($_GET['mrn'] ?? '') ?>">
-            <div style="margin-left: auto">
-                <input type="submit" value="Search" class="search-button">
-            </div>
-            <div style="margin-right: auto">
-                <a href="student_patients.php" class="all-button">Clear</a>
-            </div>
-        </form>
-    </div>
+        </div>
+        <div class="button-row" style="margin:auto">
+            <input type="submit" value="Search" class="search-button">
+            <a href="student_patients.php" class="all-button">Clear</a>
+        </div>
+    </form>
+</div>
+
 </div>
 
     <?php if ($hasSearch): ?>
