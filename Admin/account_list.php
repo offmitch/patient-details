@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once '../config/db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_students'])) {
+    $stmt = $pdo->prepare("DELETE FROM users WHERE is_admin = 0");
+    $stmt->execute();
+}
+
 include("../Include/header_auth.php");
 ?>
 
@@ -70,6 +76,12 @@ include("../Include/header_auth.php");
     </tbody>
   </table>
 </div>
+
+<form method="post" onsubmit="return confirm('Are you sure you want to delete all student accounts?');" style="text-align: center; margin-top: 20px;">
+  <button type="submit" name="delete_students" class="remove-students">Delete All Student Accounts</button>
+</form>
+
+
 </div>
 
 
