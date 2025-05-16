@@ -72,35 +72,40 @@ require_once '../config/db.php';
 
     <?php
     $sql = "SELECT * FROM patient_information";
-    $conditions = [];
-    $params = [];
-    $hasSearch = false;
+$conditions = [];
+$params = [];
+$hasSearch = false;
 
-    if (!empty($_GET['first_name'])) {
-        $conditions[] = "first_name LIKE :first_name";
-        $params[':first_name'] = "%" . $_GET['first_name'] . "%";
-        $hasSearch = true;
-    }
-    if (!empty($_GET['last_name'])) {
-        $conditions[] = "last_name LIKE :last_name";
-        $params[':last_name'] = "%" . $_GET['last_name'] . "%";
-        $hasSearch = true;
-    }
-    if (!empty($_GET['mrn'])) {
-        $conditions[] = "mrn LIKE :mrn";
-        $params[':mrn'] = "%" . $_GET['mrn'] . "%";
-        $hasSearch = true;
+function normalize($input) {
+    return trim($input);
+}
+
+if (!empty($_GET['first_name'])) {
+    $conditions[] = "first_name COLLATE utf8mb4_general_ci = :first_name";
+    $params[':first_name'] = normalize($_GET['first_name']);
+    $hasSearch = true;
+}
+if (!empty($_GET['last_name'])) {
+    $conditions[] = "last_name COLLATE utf8mb4_general_ci = :last_name";
+    $params[':last_name'] = normalize($_GET['last_name']);
+    $hasSearch = true;
+}
+if (!empty($_GET['mrn'])) {
+    $conditions[] = "mrn = :mrn";
+    $params[':mrn'] = normalize($_GET['mrn']);
+    $hasSearch = true;
+}
+
+if ($hasSearch) {
+    if ($conditions) {
+        $sql .= " WHERE " . implode(" AND ", $conditions);
     }
 
-    if ($hasSearch) {
-        if ($conditions) {
-            $sql .= " WHERE " . implode(" AND ", $conditions);
-        }
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($params);
-        $patients = $stmt->fetchAll();
-    }
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    $patients = $stmt->fetchAll();
+}
+    
     ?>
 
     <div style="padding-top:100px"> 
