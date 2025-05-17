@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     ? htmlspecialchars($_SESSION['first_name'] . ' ' . $_SESSION['last_name'])
                     : 'Guest' ?>
             </span>
-            <a href="/.php"><button class="logout_btn">Logout</button></a>
+            <a href="../index.php"><button class="logout_btn">Logout</button></a>
         </div>
     </div>
 </div>
