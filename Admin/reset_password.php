@@ -23,27 +23,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Reset Password</title>
-    <link rel="stylesheet" href="/Style/styles.css">
-    <link rel="stylesheet" href="/Style/header.css">
-    <link rel="stylesheet" href="/Style/footer.css">
-    <link rel="stylesheet" href="/Style/patient_details.css">
+    <link rel="stylesheet" href="../Style/styles.css">
+    <link rel="stylesheet" href="../Style/header.css">
+    <link rel="stylesheet" href="../Style/footer.css">
+    <link rel="stylesheet" href="../Style/patient_details.css">
 </head>
+
 <body>
-<?php include("../Include/header.php"); ?>
-<div class="container" style="margin: auto">
-    <h2>Reset Password</h2>
-    <form method="POST">
-        <div class="info-group">
-            <label>New Password</label>
-            <input type="text" name="new_password" required>
-        </div>
-        <button type="submit" class="btn">Update Password</button>
-    </form>
-    <br>
-    <a href="account_view.php?user_id=<?= $userId ?>" class="btn">← Back</a>
-</div>
-<?php include("../Include/admin_footer.php"); ?>
+    <?php include("../Include/header.php"); ?>
+    <div class="container-reset" style="margin: auto">
+        <h2>Reset Password</h2>
+        <form method="POST">
+            <div class="info-group" style="align-items:center">
+                <label>New Password</label>
+                <input type="text" name="new_password" required>
+                <button type="submit" class="btn">Update</button>
+                <a href="account_view.php?user_id=<?= $userId ?>" class="btn">← Back</a>
+
+            </div>
+        </form>
+        <br>
+    </div>
+    <?php include("../Include/admin_footer.php"); ?>
 </body>
+
 </html>
