@@ -21,9 +21,11 @@ Our team has developed a web application to support health sciences students stu
 ## 🚀 Features
 
 1. Account Types
+   
 a) User
   - Has access to the website and the basic operation of searching for a patient.
   - No permission to view all patient fields from the database, required to find by filtering for a valid first name and last name fields or an exact MRN field.
+    
 b) Admin
   - Has same privileges as a user.
   - Can modify account privileges and access user account information for actions such as password retrieval (manually done).
