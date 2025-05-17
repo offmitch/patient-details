@@ -55,7 +55,7 @@ DB_PORT=
 DB_NAME=
 DB_USER=
 DB_PASS=
-# Please do not push these files to GitHub as they contain confidential information.
+# Please do not push this file to GitHub as it contains confidential information.
 ```
 
 ## 🌍 Hosting
