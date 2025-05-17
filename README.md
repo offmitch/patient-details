@@ -49,7 +49,7 @@ Our team has developed a web application to support health sciences students stu
 git clone https://github.com/offmitch/patient-details.git
 cd patient-details
 
-# After cloning the repository, create an .env file with the following variables:
+# After cloning the repository, create an .env file with the following variables. Please contact or refer to _____________ :
 DB_HOST=
 DB_PORT=
 DB_NAME=
