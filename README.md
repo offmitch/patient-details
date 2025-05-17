@@ -65,6 +65,7 @@ DB_PASS=
 * Git & GitHub - Facilitates version control and team collaboration.
 
 ## 🏛️ Project Structure
+```
 / Main Directory
 ├── index.php                # Main landing page of the website
 ├── signup.php               # Page for new users to sign up
@@ -103,3 +104,4 @@ DB_PASS=
 │       ├── footer.css        # Styles for the footer section
 │       ├── header.css        # Styles for the header section
 │       └── landing.css       # Styles for the landing page
+```
