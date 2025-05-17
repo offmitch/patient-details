@@ -105,14 +105,14 @@ DB_PASS=
 │       ├── header.css        # Styles for the header section
 │       └── landing.css       # Styles for the landing page
 ```
-## Known Issues
+## ❌ Known Issues
 1. to be determined
 2. ...
 3. ...
 4. ...
 5. ...
 
-## Team Contact Information
+## 📱Team Contact Information
 1) Hugo Amuan | hamuan@my.bcit.ca
 2) Gurshaan Daula | gdaula@my.bcit.ca
 3) Mitchell MacDonald | mmacdonald157@my.bcit.ca
