@@ -63,3 +63,43 @@ DB_PASS=
 * HTML & CSS - Used for front-end structure and stylization of the user interface.
 * MySQL - Handles the database management of the application.
 * Git & GitHub - Facilitates version control and team collaboration.
+
+## 🏛️ Project Structure
+/ Main Directory
+├── index.php                # Main landing page of the website
+├── signup.php               # Page for new users to sign up
+│   ├── Admin                # Admin-related files for managing patient data and user accounts
+│   │   ├── account_list.php # Displays the list of user accounts
+│   │   ├── account_view.php # View details of a specific account
+│   │   ├── admin_edit_patient.php # Edit patient details as an admin
+│   │   ├── admin_page.php   # Main admin dashboard page
+│   │   ├── admin_patient_details.php # View detailed information about a specific patient
+│   │   ├── admin_patients.php # List and manage all patients
+│   │   ├── delete_patient.php # Delete a patient record
+│   │   ├── delete_user.php   # Delete a user account
+│   │   ├── edit_user.php     # Edit user account details
+│   │   ├── new_patient.php   # Add a new patient to the system
+│   │   └── reset_password.php # Reset a user or patient's password
+│   ├── Config                # Configuration files for database, environment variables, and sessions
+│   │   ├── .env              # Environment variables (e.g., database credentials)
+│   │   ├── db.php            # Database connection settings
+│   │   ├── env_loader.php    # Loads environment variables from .env file
+│   │   └── session.php       # Manages session handling and authentication
+│   ├── Images                # Stores image assets used throughout the website
+│   │   ├── bcit_logo.jpg     # Logo for BCIT (British Columbia Institute of Technology)
+│   │   ├── health-science_building.jpg # Image of the health science building
+│   │   └── landing_page_background.jpg # Background image for the landing page
+│   ├── Include               # Reusable components like headers, footers, and snippets
+│   │   ├── admin_footer.php  # Footer for the admin section
+│   │   ├── footer.php        # General footer for the website
+│   │   ├── header_auth.php   # Header for pages requiring authentication
+│   │   └── header.php        # General header for the website
+│   ├── Student               # Files related to the student interface
+│   │   ├── patient_details.php # Displays detailed information about a student's patient
+│   │   └── student_patients.php # List of all patients assigned to a student
+│   └── Style                 # CSS files for styling various pages of the website
+│       ├── accounts.css      # Styles for the account-related pages
+│       ├── admin.css         # Styles for the admin interface
+│       ├── footer.css        # Styles for the footer section
+│       ├── header.css        # Styles for the header section
+│       └── landing.css       # Styles for the landing page
