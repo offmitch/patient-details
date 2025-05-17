@@ -58,6 +58,10 @@ DB_PASS=
 # Please do not push these files to GitHub as they contain confidential information.
 ```
 
+## 🌍 Hosting
+* Database Hosting
+* Website Hosting
+
 ## 💻 Technologies
 * PHP - Used for server-side scripting logic.
 * HTML & CSS - Used for front-end structure and stylization of the user interface.
