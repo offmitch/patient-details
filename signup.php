@@ -1,21 +1,33 @@
 <?php
 require_once 'config/db.php';
 
+$signup_error = '';
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $firstName = $_POST['first_name'];
-    $lastName = $_POST['last_name'];
-    $password = $_POST['password'];
+    $firstName = $_POST['first_name'] ?? '';
+    $lastName = $_POST['last_name'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirm_password'] ?? '';
     $isAdmin = isset($_POST['is_admin']) ? 1 : 0;
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    if ($password !== $confirmPassword) {
+        $signup_error = 'Passwords do not match!';
+    } else {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, password, raw_password, is_admin) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$firstName, $lastName, $hashedPassword, $password, $isAdmin]);
+        try {
+            $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, password, raw_password, is_admin) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$firstName, $lastName, $hashedPassword, $password, $isAdmin]);
 
-    header("Location: login.php");
-    exit;
+            header("Location: login.php");
+            exit;
+        } catch (PDOException $e) {
+            $signup_error = "Error: " . $e->getMessage();
+        }
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="left-side">
       <div class="form-container">
         <h2>Create an Account</h2>
-        <?php if (!empty($signup_error)) echo "<p style='color:red;'>$signup_error</p>"; ?>
         <form method="POST">
           <div class="form-group">
             <label for="first_name">First Name</label>
@@ -55,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="confirm_password">Confirm Password</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
           </div>
+          <?php if (!empty($signup_error)) echo "<p style='color:red;'>$signup_error</p>"; ?>
 
           <button type="submit" class="btn">Create Account</button>
 
