@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <?php include("../Include/header.php"); ?>
+    <?php include("../Include/header_auth.php"); ?>
     <div class="container-reset" style="margin: auto">
         <h2>Reset Password</h2>
         <form method="POST">

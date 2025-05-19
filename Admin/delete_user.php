@@ -10,7 +10,6 @@ if (!isset($_GET['user_id']) || !is_numeric($_GET['user_id'])) {
 
 $userId = $_GET['user_id'];
 
-// Fetch user for confirmation display
 $stmt = $pdo->prepare("SELECT first_name, last_name FROM users WHERE user_id = ?");
 $stmt->execute([$userId]);
 $user = $stmt->fetch();

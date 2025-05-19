@@ -74,7 +74,7 @@ require_once '../Include/admin_auth.php';
 
         <p style="color: white"><?php echo count($patients); ?><span> Results Found: </p>
 
-        <div style="max-height: 550px; overflow-y: auto; border-radius: 6px;">
+        <div style="max-height: 400px; overflow-y: auto; border-radius: 6px;">
             <table class="results-table">
                 <thead>
                     <tr>
