@@ -26,6 +26,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<script>
+    let timeoutLimit = 15 * 60 * 1000; // 15 minutes
+    let logoutTimer;
+
+    function resetTimer() {
+        clearTimeout(logoutTimer);
+        logoutTimer = setTimeout(() => {
+            window.location.href = "/login.php?timeout=1";
+        }, timeoutLimit);
+    }
+
+    ['click', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
+        document.addEventListener(evt, resetTimer, false);
+    });
+
+    resetTimer(); // start timer initially
+</script>
 
 <!DOCTYPE html>
 <html>
