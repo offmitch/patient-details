@@ -4,23 +4,30 @@ require_once '../config/db.php';
 include("../Include/header_auth.php");
 require_once '../Include/admin_auth.php';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $stmt = $pdo->prepare("INSERT INTO patient_information 
-        (first_name, last_name, mrn, dob, gender, mrp, medication, clinical_presentation, qc_level, tests_ordered)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+function getPatientColumns($pdo)
+{
+    $stmt = $pdo->query("DESCRIBE patient_information");
+    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+}
 
-    $stmt->execute([
-        $_POST['first_name'],
-        $_POST['last_name'],
-        $_POST['mrn'],
-        $_POST['dob'],
-        $_POST['gender'],
-        $_POST['mrp'],
-        $_POST['medication'],
-        $_POST['clinical_presentation'],
-        $_POST['qc_level'],
-        $_POST['tests_ordered']
-    ]);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $columns = getPatientColumns($pdo);
+    $skip = ['patient_id'];
+    $fields = [];
+    $values = [];
+    $params = [];
+
+    foreach ($columns as $col) {
+        if (in_array($col, $skip))
+            continue;
+        $fields[] = "`$col`";
+        $values[] = ":$col";
+        $params[":$col"] = $_POST[$col] ?? null;
+    }
+
+    $sql = "INSERT INTO patient_information (" . implode(", ", $fields) . ") VALUES (" . implode(", ", $values) . ")";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
 
     header("Location: admin_patients.php");
     exit;
@@ -29,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Add New Patient</title>
     <link rel="stylesheet" href="../Style/styles.css">
@@ -56,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             min-height: 100vh;
         }
 
-
         h2 {
             text-align: center;
             font-size: 28px;
@@ -75,21 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             flex-direction: column;
         }
 
-        
         label {
             font-size: 16px;
-            font: white;
+            color: white;
             margin-bottom: 5px;
         }
-
-        select {
-            font-size: 16px !important;
-        }
-
-        .dropdown {
-    font-size: 16px !important;
-}
-
 
         input[type="text"],
         input[type="date"],
@@ -139,74 +136,61 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         form {
             margin-top: 20px;
         }
-
-        
     </style>
 </head>
 
 <body>
     <div class="page-center">
         <div class="container">
+            <div style="text-align: right; margin-bottom: 20px;">
+                <a href="add_column.php" class="btn">+ Add New Column</a>
+            </div>
+
             <h2>Add New Patient</h2>
             <form method="POST">
                 <div class="info-section">
-                    <div class="info-group">
-                        <label>First Name</label>
-                        <input type="text" name="first_name" required>
-                    </div>
+                    <?php
+                    $textareaFields = ['medication', 'clinical_presentation', 'tests_ordered'];
+                    $columns = getPatientColumns($pdo);
+                    $skip = ['patient_id'];
 
-                    <div class="info-group">
-                        <label>Last Name</label>
-                        <input type="text" name="last_name" required>
-                    </div>
+                    foreach ($columns as $col) {
+                        if (in_array($col, $skip) || in_array($col, $textareaFields))
+                            continue;
 
-                    <div class="info-group">
-                        <label>MRN</label>
-                        <input type="text" name="mrn" required>
-                    </div>
-
-                    <div class="info-group">
-                        <label>Date of Birth</label>
-                        <input type="date" name="dob" required>
-                    </div>
-
-                 <div class="info-group">
-    <label>Gender</label>
-    <select name="gender" class="dropdown" required>
-        <option value="">-- Select --</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Rather Not Say</option>
-        <option>Other</option>
-    </select>
-</div>
-
-
-                    <div class="info-group">
-                        <label>MRP</label>
-                        <input type="text" name="mrp">
-                    </div>
-
-                    <div class="info-group">
-                        <label>QC Level</label>
-                        <input type="text" name="qc_level">
-                    </div>
+                        // Handle Gender as dropdown
+                        if ($col === 'gender') {
+                            echo "<div class='info-group'>
+                                <label>Gender</label>
+                                <select name='gender' required>
+                                    <option value=''>-- Select --</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Rather Not Say</option>
+                                    <option>Other</option>
+                                </select>
+                              </div>";
+                        } else {
+                            $uppercaseLabels = ['mrn', 'dob', 'mrp', 'qc_level'];
+                            $label = in_array($col, $uppercaseLabels)
+                                ? strtoupper(str_replace('_', ' ', $col))
+                                : ucwords(str_replace('_', ' ', $col));
+                            $type = ($col === 'dob') ? 'date' : 'text';
+                            echo "<div class='info-group'>
+                                <label>$label</label>
+                                <input type='$type' name='$col' required>
+                              </div>";
+                        }
+                    }
+                    ?>
                 </div>
 
-                <div class="full-width">
-                    <label>Current Medication</label>
-                    <textarea name="medication" required></textarea>
-                </div>
-
-                <div class="full-width">
-                    <label>Clinical Presentation</label>
-                    <textarea name="clinical_presentation" required></textarea>
-                </div>
-
-                <div class="full-width">
-                    <label>Tests Ordered</label>
-                    <textarea name="tests_ordered"></textarea>
-                </div>
+                <?php foreach ($textareaFields as $field): ?>
+                    <div class="full-width">
+                        <label><?= ucwords(str_replace('_', ' ', $field)) ?></label>
+                        <textarea name="<?= $field ?>" <?= $field !== 'tests_ordered' ? 'required' : '' ?>></textarea>
+                    </div>
+                <?php endforeach; ?>
 
                 <div class="btn-row">
                     <button type="submit" class="btn">Submit</button>
@@ -214,8 +198,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </form>
         </div>
-        </div>
+    </div>
 
     <?php include("../Include/admin_footer.php"); ?>
 </body>
+
 </html>

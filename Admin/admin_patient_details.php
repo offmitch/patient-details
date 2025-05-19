@@ -14,6 +14,19 @@ if (!$patient) {
     echo "<h2 style='padding: 100px;'>Patient not found.</h2>";
     exit;
 }
+
+// get all columns from table
+function getPatientColumns($pdo) {
+    $stmt = $pdo->query("DESCRIBE patient_information");
+    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+}
+
+// formatting for labels
+function formatLabel($col) {
+    $uppercaseLabels = ['mrn', 'dob', 'mrp'];
+    $label = str_replace('_', ' ', $col);
+    return in_array($col, $uppercaseLabels) ? strtoupper($label) : ucwords($label);
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +37,14 @@ if (!$patient) {
     <link rel="stylesheet" href="../Style/styles.css">
     <link rel="stylesheet" href="../Style/patient_details.css">
     <link rel="stylesheet" href="../Style/admin.css">
-
-
     <style>
         .info-group label {
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 6px;
-}
-</style>
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,65 +52,43 @@ if (!$patient) {
         <div class="container">
             <h2>Admin - Patient Details</h2>
             <div class="info-section">
-                <div class="info-group">
-                    <label>First Name:</label>
-                    <span><?= htmlspecialchars($patient['first_name']) ?></span>
-                </div>
-                <div class="info-group">
-                    <label>Last Name:</label>
-                    <span><?= htmlspecialchars($patient['last_name']) ?></span>
-                </div>
-                <div class="info-group">
-                    <label>MRN:</label>
-                    <span><?= htmlspecialchars($patient['mrn']) ?></span>
-                </div>
-                <div class="info-group">
-                    <label>Gender:</label>
-                    <span><?= htmlspecialchars($patient['gender']) ?></span>
-                </div>
-                <div class="info-group">
-                    <label>Date of Birth:</label>
-                    <span>
-                        <?php
+                <?php
+                $columns = getPatientColumns($pdo);
+                $textareas = ['medication', 'clinical_presentation', 'tests_ordered'];
+                foreach ($columns as $col) {
+                    if (!array_key_exists($col, $patient)) continue;
+
+                    if ($col === 'dob') {
                         $dob = new DateTime($patient['dob']);
                         $now = new DateTime();
                         $age = $now->diff($dob)->y;
-                        echo htmlspecialchars($patient['dob']) . " (Age: $age)";
-                        ?>
-                    </span>
-                </div>
-                <div class="info-group">
-                    <label>MRP:</label>
-                    <span><?= htmlspecialchars($patient['mrp']) ?></span>
-                </div>
-            </div>
-            <div class="full-width">
-                <label>Current Medication:</label>
-                <textarea readonly disabled><?= htmlspecialchars($patient['medication']) ?></textarea>
-            </div>
-
-            <div class="full-width">
-                <label>Clinical Presentation:</label>
-                <textarea readonly disabled><?= htmlspecialchars($patient['clinical_presentation']) ?></textarea>
+                        echo "<div class='info-group'>
+                                <label>" . formatLabel($col) . ":</label>
+                                <span>" . htmlspecialchars($patient[$col]) . " (Age: $age)</span>
+                              </div>";
+                    } elseif (!in_array($col, $textareas)) {
+                        echo "<div class='info-group'>
+                                <label>" . formatLabel($col) . ":</label>
+                                <span>" . ($patient[$col] !== null ? htmlspecialchars($patient[$col]) : 'null') . "</span>
+                              </div>";
+                    }
+                }
+                ?>
             </div>
 
-            <div class="info-group">
-                <label>QC Level</label>
-                <span><?= htmlspecialchars($patient['qc_level']) ?></span>
-            </div>
-            <div class="info-group">
-                <label>Tests Ordered:</label>
-                <span><?= htmlspecialchars($patient['tests_ordered']) ?></span>
-            </div>
+            <?php foreach ($textareas as $col): ?>
+                <?php if (isset($patient[$col])): ?>
+                    <div class="full-width">
+                        <label><?= formatLabel($col) ?>:</label>
+                        <textarea readonly disabled><?= htmlspecialchars($patient[$col]) ?></textarea>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
 
             <a href="admin_patients.php" class="btn">← Back</a>
         </div>
     </div>
 
     <?php include("../Include/admin_footer.php"); ?>
-
-
-
 </body>
-
 </html>
