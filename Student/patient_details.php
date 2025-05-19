@@ -1,6 +1,7 @@
 <?php
 include("../Include/header_auth.php");
 require_once '../config/db.php';
+require_once '../config/session.php';
 
 $mrn = $_GET['mrn'] ?? '';
 
@@ -13,23 +14,6 @@ if (!$patient) {
     exit;
 }
 ?>
-<script>
-    let timeoutLimit = 15 * 60 * 1000; // 15 minutes
-    let logoutTimer;
-
-    function resetTimer() {
-        clearTimeout(logoutTimer);
-        logoutTimer = setTimeout(() => {
-            window.location.href = "/login.php?timeout=1";
-        }, timeoutLimit);
-    }
-
-    ['click', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
-        document.addEventListener(evt, resetTimer, false);
-    });
-
-    resetTimer(); // start timer initially
-</script>
 
 <!DOCTYPE html>
 <html>
@@ -121,6 +105,23 @@ if (!$patient) {
 
     <a href="student_patients.php" class="btn">← Back to Patient List</a>
 </div>
+<script>
+    let timeoutLimit = 15 * 60 * 1000; // 15 minutes
+    let logoutTimer;
+
+    function resetTimer() {
+        clearTimeout(logoutTimer);
+        logoutTimer = setTimeout(() => {
+            window.location.href = "/login.php?timeout=1";
+        }, timeoutLimit);
+    }
+
+    ['click', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
+        document.addEventListener(evt, resetTimer, false);
+    });
+
+    resetTimer(); // start timer initially
+</script>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 <?php
 include("../Include/header_auth.php");
 require_once '../config/db.php';
+require_once '../config/session.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -107,23 +109,6 @@ if ($hasSearch) {
 }
     
     ?>
-<script>
-    let timeoutLimit = 15 * 60 * 1000; // 15 minutes
-    let logoutTimer;
-
-    function resetTimer() {
-        clearTimeout(logoutTimer);
-        logoutTimer = setTimeout(() => {
-            window.location.href = "/login.php?timeout=1";
-        }, timeoutLimit);
-    }
-
-    ['click', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
-        document.addEventListener(evt, resetTimer, false);
-    });
-
-    resetTimer(); // start timer initially
-</script>
 
     <div style="padding-top:100px"> 
     <?php if (!$hasSearch): ?>
@@ -182,6 +167,23 @@ if ($hasSearch) {
             <?php endif; ?>
         </div>
     <?php endif; ?>
+<script>
+    let timeoutLimit = 15 * 60 * 1000; // 15 minutes
+    let logoutTimer;
+
+    function resetTimer() {
+        clearTimeout(logoutTimer);
+        logoutTimer = setTimeout(() => {
+            window.location.href = "/login.php?timeout=1";
+        }, timeoutLimit);
+    }
+
+    ['click', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
+        document.addEventListener(evt, resetTimer, false);
+    });
+
+    resetTimer(); // start timer initially
+</script>
 
 </body>
 
