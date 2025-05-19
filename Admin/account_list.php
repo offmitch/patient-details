@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../config/db.php';
+require_once '../Include/admin_auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_students'])) {
     $stmt = $pdo->prepare("DELETE FROM users WHERE is_admin = 0");

@@ -1,5 +1,8 @@
-<?php include("../Include/header_auth.php"); 
+<?php
+include("../Include/header_auth.php"); 
 require_once '../config/db.php';
+require_once '../Include/admin_auth.php';
+
 ?>
 
 <!DOCTYPE html>

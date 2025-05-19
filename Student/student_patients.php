@@ -112,6 +112,10 @@ if ($hasSearch) {
     <?php if (!$hasSearch): ?>
         <h1>Enter patient information here</h1>
     <?php endif; ?>
+    <div class="top-message">
+    One or more fields for search criteria <strong>MUST BE FILLED AND EXACT</strong>: First Name, Last Name, or MRN
+</div>
+
 <div class="search-container">
     <form method="GET" action="student_patients.php">
         <div class="input-row">

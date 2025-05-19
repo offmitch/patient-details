@@ -2,6 +2,8 @@
 session_start();
 require_once '../config/db.php';
 include("../Include/header_auth.php");
+require_once '../Include/admin_auth.php';
+
 
 if (!isset($_GET['user_id']) || !is_numeric($_GET['user_id'])) {
     echo "<div class='container'><h2>Invalid user ID.</h2></div>";

@@ -2,6 +2,7 @@
 session_start();
 require_once '../config/db.php';
 include("../Include/header_auth.php");
+require_once '../Include/admin_auth.php';
 
 $mrn = $_GET['mrn'] ?? '';
 

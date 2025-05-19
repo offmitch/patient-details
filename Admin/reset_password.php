@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../config/db.php';
+require_once '../Include/admin_auth.php';
 
 if (!isset($_GET['user_id']) || !is_numeric($_GET['user_id'])) {
     echo "Invalid user ID.";
