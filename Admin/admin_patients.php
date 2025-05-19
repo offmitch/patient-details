@@ -3,7 +3,6 @@ session_start();
 require_once '../config/db.php';
 include("../Include/header_auth.php");
 require_once '../Include/admin_auth.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +35,8 @@ require_once '../Include/admin_auth.php';
                 <a href="admin_patients.php" class="all-button">All</a>
             </div>
             <div style="margin-right: auto; color: green">
-    <a href="new_patient.php" class="add-btn">Add New Patient</a>
-</div>
-
+                <a href="new_patient.php" class="add-btn">Add New Patient</a>
+            </div>
         </form>
     </div>
 
@@ -50,16 +48,19 @@ require_once '../Include/admin_auth.php';
         $params = [];
 
         if (!empty($_GET['first_name'])) {
+            $first_name = trim($_GET['first_name']);
             $conditions[] = "first_name LIKE :first_name";
-            $params[':first_name'] = "%" . $_GET['first_name'] . "%";
+            $params[':first_name'] = "%" . $first_name . "%";
         }
         if (!empty($_GET['last_name'])) {
+            $last_name = trim($_GET['last_name']);
             $conditions[] = "last_name LIKE :last_name";
-            $params[':last_name'] = "%" . $_GET['last_name'] . "%";
+            $params[':last_name'] = "%" . $last_name . "%";
         }
         if (!empty($_GET['mrn'])) {
+            $mrn = trim($_GET['mrn']);
             $conditions[] = "mrn LIKE :mrn";
-            $params[':mrn'] = "%" . $_GET['mrn'] . "%";
+            $params[':mrn'] = "%" . $mrn . "%";
         }
 
         if ($conditions) {
