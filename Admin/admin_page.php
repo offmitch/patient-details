@@ -9,9 +9,7 @@ require_once '../config/db.php';
     <link rel="stylesheet" href="../Style/styles.css">
     <link rel="stylesheet" href="../Style/header.css">
     <link rel="stylesheet" href="../Style/footer.css">
-    <link rel="stylesheet" href="../Style/patients.css">
     <link rel="stylesheet" href="../Style/admin.css">
-    <!-- <link rel="stylesheet" href="../Style/landing.css"> -->
 
 </head>
 <body>

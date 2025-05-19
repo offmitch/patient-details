@@ -31,145 +31,177 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <title>Add New Patient</title>
     <link rel="stylesheet" href="../Style/styles.css">
-    <link rel="stylesheet" href="../Style/header.css">
-    <link rel="stylesheet" href="../Style/patients.css">
-    <!-- <link rel="stylesheet" href="/Style/landing.css"> -->
+    <link rel="stylesheet" href="../Style/admin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             background-color: #000;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 900px;
-            margin: 100px auto;
-            padding: 40px;
             background-color: rgba(0, 0, 0, 0.75);
+            padding: 40px;
             border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
         }
 
-        .container h2 {
+        .page-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+
+        h2 {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 30px;
+            font-size: 28px;
+            margin-bottom: 20px;
             color: white;
         }
 
-        form {
+        .info-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 15px;
         }
 
-        .full-width {
-            grid-column: 1 / -1;
+        .info-group {
+            display: flex;
+            flex-direction: column;
         }
 
         label {
-            font-size: 18px;
-            color: white;
-            margin-bottom: 6px;
-            display: block;
+            font-size: 16px;
+            font: white;
+            margin-bottom: 5px;
         }
 
         input[type="text"],
         input[type="date"],
         select,
         textarea {
-            width: 100%;
-            padding: 14px;
-            font-size: 16px;
+            padding: 10px;
+            font-size: 14px;
             border-radius: 6px;
             border: 1px solid #ccc;
         }
 
         textarea {
             resize: vertical;
-            height: 120px;
+            height: 80px;
+        }
+
+        .full-width {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         .btn {
-            grid-column: 1 / -1;
-            padding: 16px;
-            font-size: 18px;
-            margin-top: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
             background-color: #007BFF;
             color: white;
+            text-align: center;
             border: none;
             border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
             cursor: pointer;
         }
 
         .btn:hover {
             background-color: #0056b3;
         }
+
+        .btn-row {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        form {
+            margin-top: 20px;
+        }
     </style>
 </head>
+
 <body>
+    <div class="page-center">
+        <div class="container">
+            <h2>Add New Patient</h2>
+            <form method="POST">
+                <div class="info-section">
+                    <div class="info-group">
+                        <label>First Name</label>
+                        <input type="text" name="first_name" required>
+                    </div>
 
-<div class="container">
-    <h2>Add New Patient</h2>
-    <form method="POST">
-        <div>
-            <label>First Name</label>
-            <input type="text" name="first_name" required>
+                    <div class="info-group">
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+
+                    <div class="info-group">
+                        <label>MRN</label>
+                        <input type="text" name="mrn" required>
+                    </div>
+
+                    <div class="info-group">
+                        <label>Date of Birth</label>
+                        <input type="date" name="dob" required>
+                    </div>
+
+                    <div class="info-group">
+                        <label>Gender</label>
+                        <select name="gender" required>
+                            <option value="">-- Select --</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Rather Not Say</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="info-group">
+                        <label>MRP</label>
+                        <input type="text" name="mrp">
+                    </div>
+
+                    <div class="info-group">
+                        <label>QC Level</label>
+                        <input type="text" name="qc_level">
+                    </div>
+                </div>
+
+                <div class="full-width">
+                    <label>Current Medication</label>
+                    <textarea name="medication" required></textarea>
+                </div>
+
+                <div class="full-width">
+                    <label>Clinical Presentation</label>
+                    <textarea name="clinical_presentation" required></textarea>
+                </div>
+
+                <div class="full-width">
+                    <label>Tests Ordered</label>
+                    <textarea name="tests_ordered"></textarea>
+                </div>
+
+                <div class="btn-row">
+                    <button type="submit" class="btn">Submit</button>
+                    <a href="admin_patients.php" class="btn">Back</a>
+                </div>
+            </form>
+        </div>
         </div>
 
-        <div>
-            <label>Last Name</label>
-            <input type="text" name="last_name" required>
-        </div>
-
-        <div>
-            <label>MRN</label>
-            <input type="text" name="mrn" required>
-        </div>
-
-        <div>
-            <label>Date of Birth</label>
-            <input type="date" name="dob" required>
-        </div>
-
-        <div>
-            <label>Gender</label>
-            <select name="gender" required>
-                <option value="">-- Select --</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Rather Not Say</option>
-                <option>Other</option>
-            </select>
-        </div>
-
-        <div>
-            <label>MRP</label>
-            <input type="text" name="mrp">
-        </div>
-
-        <div>
-            <label>QC Level</label>
-            <input type="text" name="qc_level">
-        </div>
-
-        <div class="full-width">
-            <label>Current Medication</label>
-            <textarea name="medication" required></textarea>
-        </div>
-
-        <div class="full-width">
-            <label>Clinical Presentation</label>
-            <textarea name="clinical_presentation" required></textarea>
-        </div>
-
-        <div class="full-width">
-            <label>Tests Ordered</label>
-            <textarea name="tests_ordered"></textarea>
-        </div>
-
-        <button type="submit" class="btn">Submit</button>
-        <button type="button" class="btn" onclick="window.location.href='admin_patients.php'">Back</button>
-    </form>
-</div>
-
+    <?php include("../Include/admin_footer.php"); ?>
 </body>
 </html>

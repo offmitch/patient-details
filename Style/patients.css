@@ -79,6 +79,14 @@
     overflow-y: scroll;
   }
 
+  .results-table thead th {
+    position: sticky;
+    top: 0;
+    background-color:#007BFF; 
+    z-index: 2;
+}
+
+
   .results-table th, .results-table td {
     padding: 12px 15px;
     border: 1px solid #ffffff;

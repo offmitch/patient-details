@@ -10,8 +10,6 @@ include("../Include/header_auth.php");
 <head>
     <title>Patient Information System</title>
     <link rel="stylesheet" href="../Style/styles.css">
-    <link rel="stylesheet" href="../Style/header.css">
-    <link rel="stylesheet" href="../Style/footer.css">
     <link rel="stylesheet" href="../Style/patients.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../Style/admin.css">
@@ -35,7 +33,7 @@ include("../Include/header_auth.php");
             <div style="margin-right:0">
                 <a href="admin_patients.php" class="all-button">All</a>
             </div>
-            <div class="add-patient-container" style="margin-right: auto; color: green">
+            <div style="margin-right: auto; color: green">
     <a href="new_patient.php" class="add-btn">Add New Patient</a>
 </div>
 
@@ -73,7 +71,7 @@ include("../Include/header_auth.php");
 
         <p style="color: white"><?php echo count($patients); ?><span> Results Found: </p>
 
-        <div style="max-height: 400px; overflow-y: auto; border-radius: 6px;">
+        <div style="max-height: 550px; overflow-y: auto; border-radius: 6px;">
             <table class="results-table">
                 <thead>
                     <tr>

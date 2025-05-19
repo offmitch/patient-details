@@ -21,10 +21,18 @@ if (!$patient) {
 <head>
     <title>Admin - Patient Details</title>
     <link rel="stylesheet" href="../Style/styles.css">
-    <link rel="stylesheet" href="../Style/header.css">
     <link rel="stylesheet" href="../Style/patient_details.css">
     <link rel="stylesheet" href="../Style/admin.css">
-    <link rel="stylesheet" href="../Style/footer.css">
+
+
+    <style>
+        .info-group label {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+</style>
 </head>
 
 <body>
