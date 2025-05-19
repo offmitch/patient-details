@@ -112,7 +112,7 @@ if ($hasSearch) {
     <?php if (!$hasSearch): ?>
         <h1>Enter patient information here</h1>
     <?php endif; ?>
-    <div class="top-message">
+    <div class="top-message" style="font-size:40px">
     One or more fields for search criteria <strong>MUST BE FILLED AND EXACT</strong>: First Name, Last Name, or MRN
 </div>
 

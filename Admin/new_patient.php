@@ -75,11 +75,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             flex-direction: column;
         }
 
+        
         label {
             font-size: 16px;
             font: white;
             margin-bottom: 5px;
         }
+
+        select {
+            font-size: 16px !important;
+        }
+
+        .dropdown {
+    font-size: 16px !important;
+}
+
 
         input[type="text"],
         input[type="date"],
@@ -129,6 +139,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         form {
             margin-top: 20px;
         }
+
+        
     </style>
 </head>
 
@@ -158,16 +170,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <input type="date" name="dob" required>
                     </div>
 
-                    <div class="info-group">
-                        <label>Gender</label>
-                        <select name="gender" required>
-                            <option value="">-- Select --</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Rather Not Say</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
+                 <div class="info-group">
+    <label>Gender</label>
+    <select name="gender" class="dropdown" required>
+        <option value="">-- Select --</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Rather Not Say</option>
+        <option>Other</option>
+    </select>
+</div>
+
 
                     <div class="info-group">
                         <label>MRP</label>
