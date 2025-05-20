@@ -1,6 +1,9 @@
 <?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
-include("./Include/header.php");
 require_once 'config/db.php';
 
 $error = '';
@@ -21,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['is_admin'] = $user['is_admin'];
 
         if ($user['is_admin'] == 1) {
-            header("Location: /Admin/admin_page.php");
-            exit;
+            header("Location: Admin/admin_page.php");
+            die("Redirecting to admin page...");
         } else {
-            header("Location: /Student/student_patients.php");
-            exit;
+            header("Location: Student/student_patients.php");
+            die("Redirecting to student page...");
         }
     } else {
         $error = "Invalid first name, last name, or password.";
@@ -39,8 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Login</title>
     <link rel="stylesheet" href="Style/header.css">
     <link rel="stylesheet" href="Style/register.css">
-    <!-- <link rel="stylesheet" href="Style/footer.css"> -->
-
 </head>
 <body>
 
@@ -48,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="left-side">
       <div class="form-container">
         <h2>Login</h2>
-        <?php if (!empty($signup_error)) echo "<p style='color:red;'>$signup_error</p>"; ?>
+        <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
         <form method="POST">
           <div class="form-group">
             <label for="first_name">First Name</label>
@@ -65,7 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="password" id="password" name="password" required>
           </div>
 
-
           <button type="submit" class="btn">Login</button>
 
           <div class="additional-links">
@@ -77,7 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p>Forgot your password?
               <span style="color:yellow"><i>Please contact your instructor</i></span>
             </p>
-           
           </div>
 
         </form>
