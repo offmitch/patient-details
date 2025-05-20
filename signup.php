@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, password, raw_password, is_admin) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$firstName, $lastName, $hashedPassword, $password, $isAdmin]);
 
-            header("Location: login.php");
+            header("Location: index.php");
             exit;
         } catch (PDOException $e) {
             $signup_error = "Error: " . $e->getMessage();
