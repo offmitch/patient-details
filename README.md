@@ -49,7 +49,7 @@ Our team has developed a web application to support health sciences students stu
 git clone https://github.com/offmitch/patient-details.git
 cd patient-details
 
-# After cloning the repository, create an .env file with the following variables. Please contact or refer to _____________ :
+# After cloning the repository, create an .env file with the following variables. Please contact or refer to Sonja Turnbull:
 DB_HOST=
 DB_PORT=
 DB_NAME=
@@ -59,8 +59,8 @@ DB_PASS=
 ```
 
 ## 🌍 Hosting
-* Database Hosting
-* Website Hosting
+* Database Hosting - Please refer to the pdf in the instructions folder.
+* Website Hosting - Please refer to the pdf in the instructions folder.
 
 ## 💻 Technologies
 * PHP - Used for server-side scripting logic.
