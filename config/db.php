@@ -1,6 +1,6 @@
 <?php
 require_once 'env_loader.php';
-loadEnv(__DIR__ . '/.env');
+loadEnv(path: __DIR__ . '/../.env');
 
 $host = $_ENV['DB_HOST'];
 $port = $_ENV['DB_PORT'];
