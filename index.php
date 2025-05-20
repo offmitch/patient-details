@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 session_start();
 require_once 'config/db.php';
-include("../Include/header_auth.php");
 
 
 $error = '';
@@ -46,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="Style/register.css">
 </head>
 <body>
+  <?php include("./Include/header.php"); ?>
 
   <div class="content-split">
     <div class="left-side">
