@@ -1,11 +1,8 @@
 # Use PHP with Apache
 FROM php:8.1-apache
 
-# Install required PHP extensions
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-
-# Install "vlucas/phpdotenv" if you're using it in your project (optional)
-# You need composer installed in your project for this to work
+# Install required PHP extensions: mysqli and pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli pdo pdo_mysql
 
 # Enable Apache rewrite module (optional)
 RUN a2enmod rewrite
