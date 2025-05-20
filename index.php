@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['is_admin'] = $user['is_admin'];
 
         if ($user['is_admin'] == 1) {
-            header("Location: Admin/admin_page.php");
+            header("Location: /Admin/admin_page.php");
             exit;
         } else {
-            header("Location: Student/student_patients.php");
+            header("Location: /Student/student_patients.php");
             exit;
         }
     } else {
