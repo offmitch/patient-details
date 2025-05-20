@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 
 session_start();
 require_once 'config/db.php';
+include("../Include/header_auth.php");
+
 
 $error = '';
 
