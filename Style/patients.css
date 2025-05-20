@@ -81,7 +81,7 @@
 
   .results-table thead th {
     position: sticky;
-    top: 0;
+    top: -10px;
     background-color:#007BFF; 
     z-index: 2;
 }
