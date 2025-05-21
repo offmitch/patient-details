@@ -27,14 +27,27 @@ include("../Include/header_auth.php");
 
 </head>
 <style>
-  body {
-    overflow-y: auto !important;
-    height: auto !important;
-  }
+.header {
+  position: fixed;
+  height: 80px;
+  z-index: 9999;
+}
 
-  body {
-    padding-bottom: 80px;
-  }
+/* body {
+  padding-top: 100px;
+} */
+
+.results-container {
+  max-height: 600px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.results-table thead th {
+  background-color: #007BFF;
+  z-index: 1;
+}
+
 /* 
   .results-container {
     max-height: none !important;
