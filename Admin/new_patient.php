@@ -43,162 +43,186 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../Style/styles.css">
     <link rel="stylesheet" href="../Style/admin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background-color: #000;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        /* background-color: #ffffff; */
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+    }
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.75);
-            padding: 40px;
-            border-radius: 12px;
-            max-width: 800px;
-            width: 100%;
-        }
+    body {
+        padding-bottom: 100px; /* space for fixed footer */
+            background-color: #ffffff;
 
-        .page-center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
+    }
 
-        h2 {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: white;
-        }
+    .form-wrapper {
+        max-width: 900px;
+        margin: 40px auto;
+        /* background-color: #ffffff; */
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+    }
 
-        .info-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
+    h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #ffffff;
+    }
 
-        .info-group {
-            display: flex;
-            flex-direction: column;
-        }
+    .top-action {
+        text-align: right;
+        margin-bottom: 20px;
+    }
 
-        label {
-            font-size: 16px;
-            color: white;
-            margin-bottom: 5px;
-        }
+    .top-action .btn {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-        input[type="text"],
-        input[type="date"],
-        select,
-        textarea {
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
+    .top-action .btn:hover {
+        background-color: #218838;
+    }
 
-        textarea {
-            resize: vertical;
-            height: 80px;
-        }
+    .info-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
 
-        .full-width {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-        }
+    .info-group {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            background-color: #007BFF;
-            color: white;
-            text-align: center;
-            border: none;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    label {
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #ffffff;
+    }
 
-        .btn:hover {
-            background-color: #0056b3;
-        }
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        width: 100%;
+    }
 
-        .btn-row {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
 
-        form {
-            margin-top: 20px;
-        }
-    </style>
+    .full-width {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-row {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 14px 24px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    form{
+        padding-bottom: 100px;
+        
+    }
+</style>
+
+
 </head>
 
 <body>
-    <div class="page-center">
-        <div class="container">
-            <div style="text-align: right; margin-bottom: 20px;">
-                <a href="add_column.php" class="btn">+ Add New Column</a>
+    <div class="form-wrapper">
+        <div class="top-action">
+            <a href="add_column.php" class="btn">+ Add New Column</a>
+        </div>
+
+        <h2>Add New Patient</h2>
+        <form method="POST">
+            <div class="info-section">
+                <?php
+                $textareaFields = ['medication', 'clinical_presentation', 'tests_ordered'];
+                $columns = getPatientColumns($pdo);
+                $skip = ['patient_id'];
+
+                foreach ($columns as $col) {
+                    if (in_array($col, $skip) || in_array($col, $textareaFields))
+                        continue;
+
+                    if ($col === 'gender') {
+                        echo "<div class='info-group'>
+                            <label>Gender</label>
+                            <select name='gender' required>
+                                <option value=''>-- Select --</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Rather Not Say</option>
+                                <option>Other</option>
+                            </select>
+                          </div>";
+                    } else {
+                        $uppercaseLabels = ['mrn', 'dob', 'mrp', 'qc_level'];
+                        $label = in_array($col, $uppercaseLabels)
+                            ? strtoupper(str_replace('_', ' ', $col))
+                            : ucwords(str_replace('_', ' ', $col));
+                        $type = ($col === 'dob') ? 'date' : 'text';
+                        echo "<div class='info-group'>
+                            <label>$label</label>
+                            <input type='$type' name='$col' required>
+                          </div>";
+                    }
+                }
+                ?>
             </div>
 
-            <h2>Add New Patient</h2>
-            <form method="POST">
-                <div class="info-section">
-                    <?php
-                    $textareaFields = ['medication', 'clinical_presentation', 'tests_ordered'];
-                    $columns = getPatientColumns($pdo);
-                    $skip = ['patient_id'];
-
-                    foreach ($columns as $col) {
-                        if (in_array($col, $skip) || in_array($col, $textareaFields))
-                            continue;
-
-                        // Handle Gender as dropdown
-                        if ($col === 'gender') {
-                            echo "<div class='info-group'>
-                                <label>Gender</label>
-                                <select name='gender' required>
-                                    <option value=''>-- Select --</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Rather Not Say</option>
-                                    <option>Other</option>
-                                </select>
-                              </div>";
-                        } else {
-                            $uppercaseLabels = ['mrn', 'dob', 'mrp', 'qc_level'];
-                            $label = in_array($col, $uppercaseLabels)
-                                ? strtoupper(str_replace('_', ' ', $col))
-                                : ucwords(str_replace('_', ' ', $col));
-                            $type = ($col === 'dob') ? 'date' : 'text';
-                            echo "<div class='info-group'>
-                                <label>$label</label>
-                                <input type='$type' name='$col' required>
-                              </div>";
-                        }
-                    }
-                    ?>
+            <?php foreach ($textareaFields as $field): ?>
+                <div class="full-width">
+                    <label><?= ucwords(str_replace('_', ' ', $field)) ?></label>
+                    <textarea name="<?= $field ?>" <?= $field !== 'tests_ordered' ? 'required' : '' ?>></textarea>
                 </div>
+            <?php endforeach; ?>
 
-                <?php foreach ($textareaFields as $field): ?>
-                    <div class="full-width">
-                        <label><?= ucwords(str_replace('_', ' ', $field)) ?></label>
-                        <textarea name="<?= $field ?>" <?= $field !== 'tests_ordered' ? 'required' : '' ?>></textarea>
-                    </div>
-                <?php endforeach; ?>
-
-                <div class="btn-row">
-                    <button type="submit" class="btn">Submit</button>
-                    <a href="admin_patients.php" class="btn">Back</a>
-                </div>
-            </form>
-        </div>
+            <div class="btn-row">
+                <button type="submit" class="btn">Submit</button>
+                <a href="admin_patients.php" class="btn">Back</a>
+            </div>
+        </form>
     </div>
 
     <?php include("../Include/admin_footer.php"); ?>
@@ -218,8 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     });
 
     resetTimer(); // start timer initially
-</script>
-
+    </script>
 </body>
 
 </html>
