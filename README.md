@@ -45,8 +45,8 @@ If you would like to see a demo version, please visit this URL: https://patient-
 ---
 
 ## ⚙️ Installation
-# These steps are for people who are looking to read/change the source code of the application. Future reference for any CST students in the future whom will work on this project.
-# This step is unnecessary for Hosting/Deploying the live version. 
+These steps are for people who are looking to read/change the source code of the application. Future reference for any CST students in the future whom will work on this project.
+This step is unnecessary for Hosting/Deploying the live version. 
 
 ```bash
 # Clone the repository (in your cmd)
