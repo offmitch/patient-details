@@ -14,7 +14,7 @@ Team 8: Mitchell MacDonald, Gurshaan Daula, Hugo Amuan
 
 ## 🧠 About
 
-Our team has developed a web application to support health sciences students studying hematology. The application simulates a database system that students will encounter in their future careers, allowing them to store, manage, and query patient information related to hematological conditions. By interacting with this system, students gain hands-on experience with patient data management and querying techniques commonly used in the healthcare industry.
+Our team has developed a web application to support medical students studying hematology. The application simulates a database system that students will encounter in their future careers; allowing them to store, manage, and query patient information related to hematological conditions. By interacting with this system, students gain hands-on experience with patient data management and querying techniques commonly used in the healthcare industry.
 
 ---
 
@@ -49,7 +49,7 @@ Our team has developed a web application to support health sciences students stu
 git clone https://github.com/offmitch/patient-details.git
 cd patient-details
 
-# After cloning the repository, create an .env file with the following variables. Please contact or refer to Sonja Turnbull:
+# After cloning the repository, create an .env file with the following variables. Please contact or refer to Sonja Turnbull from the BCIT Health Sciences Department:
 DB_HOST=
 DB_PORT=
 DB_NAME=
@@ -103,18 +103,21 @@ DB_PASS=
 │   │   ├── patient_details.php # Displays detailed information about a student's patient
 │   │   └── student_patients.php # List of all patients assigned to a student
 │   └── Style                 # CSS files for styling various pages of the website
-│       ├── accounts.css      # Styles for the account-related pages
-│       ├── admin.css         # Styles for the admin interface
-│       ├── footer.css        # Styles for the footer section
-│       ├── header.css        # Styles for the header section
-│       └── landing.css       # Styles for the landing page
+│   | ├── accounts.css      # Styles for the account-related pages
+│   | ├── admin.css         # Styles for the admin interface
+│   | ├── footer.css        # Styles for the footer section
+│   | ├── header.css        # Styles for the header section
+│   | └── landing.css       # Styles for the landing page
+|   ├── Instructions
+    | ├── Hosting Steps1.pdf # General Instructions for live deployment of the application.
+      
 ```
 ## ❌ Known Issues
-1. to be determined
-2. ...
-3. ...
-4. ...
-5. ...
+1. Cannot add new fields/columns for the Patient Information Tab
+2. Some missing quality of life functionalities such as: Insert multiple patients at once, delete all patients, etc
+3. Media Queries: Current design can be better improved to work with varying screen sizes.
+4. Missing quality of life buttons (back buttons, better redirects)
+
 
 ## 📱Team Contact Information
 1) Hugo Amuan | hamuan@my.bcit.ca
