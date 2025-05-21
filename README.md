@@ -16,6 +16,8 @@ Team 8: Mitchell MacDonald, Gurshaan Daula, Hugo Amuan
 
 Our team has developed a web application to support medical students studying hematology. The application simulates a database system that students will encounter in their future careers; allowing them to store, manage, and query patient information related to hematological conditions. By interacting with this system, students gain hands-on experience with patient data management and querying techniques commonly used in the healthcare industry.
 
+If you would like to see a demo version, please visit this URL: https://patient-details-1-84s7.onrender.com/
+
 ---
 
 ## 🚀 Features
@@ -38,11 +40,13 @@ Our team has developed a web application to support medical students studying he
    - Sessions expire within 15 minutes of inactivity for security reasons, as the program will be used on public computers owned by BCIT.
 
 4. **Desktop-Compatible**  
-   - Development was intended to be used on desktop computers or laptops, and UI is ensured to work on the latest versions of Firefox, Safari, or Chrome.
+   - Development was intended to be used on desktop computers or laptops, and UI is ensured to work on the latest versions of Firefox, Safari, or Chrome. 
 
 ---
 
 ## ⚙️ Installation
+# These steps are for people who are looking to read/change the source code of the application. Future reference for any CST students in the future whom will work on this project.
+# This step is unnecessary for Hosting/Deploying the live version. 
 
 ```bash
 # Clone the repository (in your cmd)
@@ -55,7 +59,7 @@ DB_PORT=
 DB_NAME=
 DB_USER=
 DB_PASS=
-# Please do not push this file to GitHub as it contains confidential information.
+# Please do not push this file to GitHub as it contains confidential information! 
 ```
 
 ## 🌍 Hosting
@@ -112,12 +116,11 @@ DB_PASS=
     | ├── Hosting Steps1.pdf # General Instructions for live deployment of the application.
       
 ```
-## ❌ Known Issues
+## ❌ Known Issues/Steps for Improvement
 1. Cannot add new fields/columns for the Patient Information Tab
-2. Some missing quality of life functionalities such as: Insert multiple patients at once, delete all patients, etc
+2. Some missing quality of life functionalities such as: inserting multiple patients at once, delete all patients, etc
 3. Media Queries: Current design can be better improved to work with varying screen sizes.
-4. Missing quality of life buttons (back buttons, better redirects)
-
+4. Additional UI features: missing consistent animations and error pop-ups.
 
 ## 📱Team Contact Information
 1) Hugo Amuan | hamuan@my.bcit.ca
